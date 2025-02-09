@@ -2269,7 +2269,6 @@ select {
     border: 1px solid var(--gray-300);
     border-radius: var(--border-radius);
     font-size: 1rem;
-    transition: var(--transition);
 }
 
 input:focus,
@@ -2354,7 +2353,6 @@ tr:hover {
     background: white;
     padding: 2rem;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-lg);
     max-width: 90%;
     width: 600px;
     max-height: 90vh;

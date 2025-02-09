@@ -2,35 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>RIVERDALE ACADEMY</title>
-    <link rel = "stylesheet" href = "work.css">
+    <link rel="stylesheet" href="work.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
- 
-    <script>
-        // Register the service worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('service-worker.js').then(function(registration) {
-                    console.log('Service Worker registered with scope:', registration.scope);
-                }).catch(function(error) {
-                    console.error('Service Worker registration failed:', error);
-                });
-            });
-        }
-    </script>
-
-    <!-- Add QR code library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
-    <!-- Add Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Add this in the head section if not already present -->
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-
-    <!-- Add this in the head section of your HTML -->
     <style>
         /* Modern color palette */
         :root {
@@ -455,261 +432,6 @@
             background: #157192;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 20px auto;
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 800px;
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-section {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .close {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            color: #666;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: #000;
-        }
-
-        .preview-controls {
-            position: sticky;
-            top: 0;
-            background: white;
-            padding: 15px;
-            text-align: right;
-            border-bottom: 1px solid #ddd;
-            z-index: 1000;
-        }
-
-        .print-btn, .cancel-btn {
-            padding: 10px 20px;
-            margin-left: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .print-btn {
-            background: #1a5f7a;
-            color: white;
-        }
-
-        .cancel-btn {
-            background: #dc3545;
-            color: white;
-        }
-
-        .payslip-container {
-            padding: 20px;
-            background: white;
-        }
-
-        .detail-row {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 10px;
-        }
-
-        .detail-group {
-            flex: 1;
-        }
-
-        .detail-group label {
-            font-weight: bold;
-            color: #666;
-        }
-
-        .salary-details {
-            display: flex;
-            gap: 30px;
-            margin: 20px 0;
-        }
-
-        .earnings-section, .deductions-section {
-            flex: 1;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .detail-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px dashed #ddd;
-        }
-
-        .total-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            margin-top: 10px;
-            border-top: 2px solid #ddd;
-            font-weight: bold;
-        }
-
-        .net-pay-section {
-            background: #1a5f7a;
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .net-pay {
-            display: flex;
-            justify-content: space-between;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        @media print {
-            .preview-controls {
-                display: none;
-            }
-            
-            .payslip-container {
-                padding: 0;
-            }
-        }
-
-        .form-section {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .form-section h3 {
-            color: #1a5f7a;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .form-group input:focus {
-            border-color: #1a5f7a;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(26, 95, 122, 0.2);
-        }
-
-        .generate-btn {
-            background: #1a5f7a;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            transition: background-color 0.3s ease;
-        }
-
-        .generate-btn:hover {
-            background: #157192;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 20px;
-            width: 80%;
-            max-width: 800px;
-            border-radius: 8px;
-        }
-
-        .action-button {
-            background: #1a5f7a;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 10px 0;
-        }
-
-        .action-button:hover {
-            background: #157192;
-        }
-
         .search-container {
             margin-top: 20px;
         }
@@ -737,147 +459,59 @@
         }
     </style>
     <script>
-        // Single script to handle all payroll functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const showPayrollBtn = document.getElementById('showPayrollBtn');
-            const payrollModal = document.getElementById('payrollModal');
-            const payrollForm = document.getElementById('payrollForm');
-
-            // Show modal
-            showPayrollBtn.addEventListener('click', function() {
-                console.log('Show button clicked');
-                payrollModal.style.display = 'block';
+        // Register the service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                }).catch(function(error) {
+                    console.error('Service Worker registration failed:', error);
+                });
             });
-
-            // Close modal when clicking (x) or outside
-            window.onclick = function(event) {
-                if (event.target === payrollModal) {
-                    payrollModal.style.display = 'none';
-                }
-            };
-
-            // Close modal function
-            window.closePayrollModal = function() {
-                payrollModal.style.display = 'none';
-            };
-
-            // Handle form submission
-            payrollForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                console.log('Form submitted');
-                
-                const formData = {
-                    name: document.getElementById('employeeName').value,
-                    employeeNumber: document.getElementById('employeeNumber').value,
-                    nrcNumber: document.getElementById('nrcNumber').value,
-                    department: document.getElementById('department').value,
-                    position: document.getElementById('position').value,
-                    basicSalary: parseFloat(document.getElementById('basicSalary').value) || 0,
-                    housingAllowance: parseFloat(document.getElementById('housingAllowance').value) || 0,
-                    transportAllowance: parseFloat(document.getElementById('transportAllowance').value) || 0,
-                    overtimeHours: parseFloat(document.getElementById('overtimeHours').value) || 0,
-                    overtimeRate: parseFloat(document.getElementById('overtimeRate').value) || 0
-                };
-
-                generatePayslip(formData);
-                closePayrollModal();
-            });
-        });
-    </script>
-    <script>
-        // Add this function to generate and display the payslip
-        function generatePayslip(data) {
-            // Calculate totals
-            const grossEarnings = data.basicSalary + data.housingAllowance + data.transportAllowance + (data.overtimeHours * data.overtimeRate);
-            const napsaDeduction = Math.min(data.basicSalary * 0.05, 1073.20);
-            const netPay = grossEarnings - napsaDeduction;
-
-            // Create print window
-            const printWindow = window.open('', '_blank');
-            
-            // Create the HTML content without template literals
-            const printContent = [
-                '<!DOCTYPE html>',
-                '<html>',
-                '<head>',
-                '<title>Payslip - ' + data.name + '</title>',
-                '<style>',
-                'body { font-family: Arial, sans-serif; }',
-                '.payslip-container { max-width: 800px; margin: 20px auto; padding: 20px; }',
-                '.logo-container { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }',
-                '.logo { width: 100px; height: auto; }',
-                '.school-info { text-align: center; }',
-                '.employee-details { margin: 20px 0; }',
-                '.salary-details { display: flex; justify-content: space-between; margin: 20px 0; }',
-                '.earnings, .deductions { flex: 1; padding: 10px; }',
-                '.net-pay { background: #1a5f7a; color: white; padding: 10px; text-align: center; margin: 20px 0; }',
-                '.footer { text-align: center; margin-top: 30px; font-size: 12px; }',
-                '@media print { @page { margin: 0.5cm; } body { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }',
-                '</style>',
-                '</head>',
-                '<body>',
-                '<div class="payslip-container">',
-                '<div class="logo-container">',
-                '<img src="zra.png" alt="ZRA Logo" class="logo">',
-                '<div class="school-info">',
-                '<h2>RIVERDALE ACADEMY AND DAY CARE</h2>',
-                '<h3>PAYSLIP</h3>',
-                '<p>21 PAIKANI PHIRI STREET RIVERSIDE, CHINGOLA</p>',
-                '<p>📞 0967182428 | ☎️ 0212 - 271983</p>',
-                '</div>',
-                '<img src="eastlogo.jpg" alt="School Logo" class="logo">',
-                '</div>',
-                '<div class="employee-details">',
-                '<p><strong>Name:</strong> ' + data.name + '</p>',
-                '<p><strong>Employee Number:</strong> ' + data.employeeNumber + '</p>',
-                '<p><strong>NRC Number:</strong> ' + data.nrcNumber + '</p>',
-                '<p><strong>Department:</strong> ' + data.department + '</p>',
-                '<p><strong>Position:</strong> ' + data.position + '</p>',
-                '</div>',
-                '<div class="salary-details">',
-                '<div class="earnings">',
-                '<h4>Earnings</h4>',
-                '<p>Basic Salary: K' + data.basicSalary.toFixed(2) + '</p>',
-                '<p>Housing Allowance: K' + data.housingAllowance.toFixed(2) + '</p>',
-                '<p>Transport Allowance: K' + data.transportAllowance.toFixed(2) + '</p>',
-                '<p>Overtime (' + data.overtimeHours + 'hrs @ K' + data.overtimeRate + '/hr): K' + (data.overtimeHours * data.overtimeRate).toFixed(2) + '</p>',
-                '<p><strong>Gross Earnings: K' + grossEarnings.toFixed(2) + '</strong></p>',
-                '</div>',
-                '<div class="deductions">',
-                '<h4>Deductions</h4>',
-                '<p>NAPSA (5%): K' + napsaDeduction.toFixed(2) + '</p>',
-                '<p><strong>Total Deductions: K' + napsaDeduction.toFixed(2) + '</strong></p>',
-                '</div>',
-                '</div>',
-                '<div class="net-pay">',
-                '<h3>Net Pay: K' + netPay.toFixed(2) + '</h3>',
-                '</div>',
-                '<div class="footer">',
-                '<p>This is a computer generated payslip and does not require signature.</p>',
-                '<p>System Developed By Chinyama Richard</p>',
-                '<p>Contact: 0962299100, 0765099249</p>',
-                '</div>',
-                '</div>',
-                '<script>',
-                'window.onload = function() { window.print(); setTimeout(function() { window.close(); }, 1000); };',
-                '<\/script>',
-                '</body>',
-                '</html>'
-            ].join('\n');
-
-            printWindow.document.write(printContent);
-            printWindow.document.close();
         }
     </script>
 </head>
 <body>
-    <div class="container" id="mainContainer">
+    <div class="container">
         <div class="header-container">
             <div class="main-header">
                 <img src="eastlogo.jpg" alt="School Logo" class="school-logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/120x120?text=School+Logo'">
                 <div class="header-text">
                     <h1>Riverdale Academy</h1>
-                    <div class="subtitle">Student Record System</div>
+                    <p class="subtitle">Excellence in Education</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-container">
+            <div class="marquee-container">
+                <marquee behavior="scroll" direction="left" scrollamount="5" class="marquee-text">
+                    Welcome to Riverdale Academy and Day Care | System Developed by Chinyama Richard | 
+                    Call: 0962299100, 0765099249
+                </marquee>
+            </div>
+
+            <div class="button-container">
+                <button onclick="window.location.href='#studentForm'">ADD STUDENT</button>
+                <button onclick="showPayrollModal()">PAYMENT OF SALARIES</button>
+                <button onclick="window.location.href='index.html'">RETURN TO MAIN MENU</button>
+            </div>
+
+            <div class="dashboard-selection-container">
+                <div class="selection-group">
+                    <select id="gradeSelect" class="dashboard-select">
+                        <option value="">Select Grade</option>
+                        <option value="1">Grade 1</option>
+                        <option value="2">Grade 2</option>
+                        <option value="3">Grade 3</option>
+                        <option value="4">Grade 4</option>
+                        <option value="5">Grade 5</option>
+                        <option value="6">Grade 6</option>
+                        <option value="7">Grade 7</option>
+                        <option value="8">Baby Class</option>
+                        <option value="9">Middle Class</option>
+                        <option value="10">Reception</option>
+                    </select>
                 </div>
             </div>
         </div>
