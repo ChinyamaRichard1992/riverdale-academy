@@ -2557,3 +2557,81 @@ tr:hover {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+/* Responsive Font Scaling */
+@media screen and (max-width: 1200px) {
+    h1 { font-size: calc(24px + 1vw); }
+    h2 { font-size: calc(20px + 1vw); }
+    h3 { font-size: calc(18px + 1vw); }
+    p, button, input, select { font-size: calc(14px + 0.5vw); }
+    .marquee-text { font-size: calc(14px + 0.5vw); }
+}
+
+@media screen and (max-width: 768px) {
+    h1 { font-size: calc(20px + 1vw); }
+    h2 { font-size: calc(18px + 1vw); }
+    h3 { font-size: calc(16px + 1vw); }
+    p, button, input, select { font-size: calc(14px + 0.5vw); }
+    .marquee-text { font-size: calc(12px + 0.5vw); }
+    
+    /* Fix mobile visuals */
+    .charts-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .charts-container canvas {
+        max-width: 100%;
+        height: auto !important;
+    }
+    
+    /* Improve button visibility */
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .button-container button {
+        width: 100%;
+        white-space: normal;
+        height: auto;
+        min-height: 44px;
+        padding: 10px;
+        line-height: 1.2;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 { font-size: calc(18px + 1vw); }
+    h2 { font-size: calc(16px + 1vw); }
+    h3 { font-size: calc(14px + 1vw); }
+    p, button, input, select { font-size: calc(12px + 0.5vw); }
+    .marquee-text { font-size: calc(10px + 0.5vw); }
+    
+    /* Further optimize visuals for very small screens */
+    .charts-container {
+        margin: 0 -10px;
+    }
+    
+    canvas {
+        max-width: 100%;
+        height: auto !important;
+    }
+}
+
+/* Fix chart responsiveness */
+canvas {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}

@@ -270,7 +270,7 @@
             }
             
             .action-buttons {
-                display: none;
+                display: none !important;
             }
         }
 
@@ -627,21 +627,22 @@
         <div class="data-visualization">
             <div class="charts-row">
                 <!-- Gender Distribution -->
-                <div class="chart-box">
-                    <h3>Gender Distribution</h3>
-                    <canvas id="genderChart" width="300" height="200"></canvas>
+                <div class="chart-wrapper">
+                    <canvas id="genderChart"></canvas>
                 </div>
-                
                 <!-- Grade Distribution -->
-                <div class="chart-box">
-                    <h3>Grade Distribution</h3>
-                    <canvas id="gradeChart" width="300" height="200"></canvas>
+                <div class="chart-wrapper">
+                    <canvas id="gradeChart"></canvas>
                 </div>
-                
-                <!-- Term Distribution -->
-                <div class="chart-box">
-                    <h3>Term Distribution</h3>
-                    <canvas id="termChart" width="300" height="200"></canvas>
+            </div>
+            <div class="charts-row">
+                <!-- Age Distribution -->
+                <div class="chart-wrapper">
+                    <canvas id="ageChart"></canvas>
+                </div>
+                <!-- Fee Payment Status -->
+                <div class="chart-wrapper">
+                    <canvas id="feeChart"></canvas>
                 </div>
             </div>
         </div>
